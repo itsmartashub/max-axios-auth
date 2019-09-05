@@ -69,7 +69,8 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
+import axiosInstanca from '../../axios-auth' // importovali smo kao axiosInstanca al ovo ime moze koje god, mogli smo i kao axios, bitno je ovo from, i sta iz rog fajla koji gadjamo sa from exportujemo (instanca)
 
 export default {
 data () {
@@ -107,7 +108,7 @@ methods: {
 		}
 		console.log(formData)
 		
-		axios.post('/korisnici.json', formData) // firebaseu mozemo slati sa post ili put metodom. Izabracemo post(). On zahteva bar dva argumenta: 1. URL kao string, url ka kome saljemo rikvest, a 2. argument jke sta saljemo tim rikvestom, podatke. za podatke ssaljemo ovaj objekat formData, a axios ce automatski da stringifuje ovo i poslace kao validan komad podataka na backend. Post metodom mozemo staviti i 3.argument: to je js objekat kojim mozemo da prosledimo dodatnu/naknadnu konfiguraciju za rikvest ,ako te zanima p;ogledaj u axios dokumentaciju na githubu. Axioos potom vraca Promise kao odgovor jer je asinhrona radnja, stoga idemo sa chainovanjem i then fazonima, dakle mozemo da cejnujemo then da uradimo nesto kada Promise posalje resolve
+		axiosInstanca.post('/korisnici.json', formData) // firebaseu mozemo slati sa post ili put metodom. Izabracemo post(). On zahteva bar dva argumenta: 1. URL kao string, url ka kome saljemo rikvest, a 2. argument jke sta saljemo tim rikvestom, podatke. za podatke ssaljemo ovaj objekat formData, a axios ce automatski da stringifuje ovo i poslace kao validan komad podataka na backend. Post metodom mozemo staviti i 3.argument: to je js objekat kojim mozemo da prosledimo dodatnu/naknadnu konfiguraciju za rikvest ,ako te zanima p;ogledaj u axios dokumentaciju na githubu. Axioos potom vraca Promise kao odgovor jer je asinhrona radnja, stoga idemo sa chainovanjem i then fazonima, dakle mozemo da cejnujemo then da uradimo nesto kada Promise posalje resolve
 			.then(resp => {
 				console.log(resp);
 			})
