@@ -5,10 +5,10 @@ import axios from 'axios' // ovde smo importovali axios da bi mogli da setujemo 
 import router from './router'
 import store from './store'
 
-axios.defaults.baseURL = 'https://max-axios-auth.firebaseio.com' // base url, setovanje base url-a mozemo sa defaults objektom. Ovo je objekat sa kojim axios radi, i on nam omogucava da setujemo neka difoltna podesavanja i ta podesavanja koja setujemo ovde, mogu takodje biti setovana i tamo za recimo neki odredjen rikvest kao drugi/treci argument, ako zelimo da setujemo neko specificno podesavanje
+axios.defaults.baseURL = 'https://max-axios-authorization.firebaseio.com' // base url, setovanje base url-a mozemo sa defaults objektom. Ovo je objekat sa kojim axios radi, i on nam omogucava da setujemo neka difoltna podesavanja i ta podesavanja koja setujemo ovde, mogu takodje biti setovana i tamo za recimo neki odredjen rikvest kao drugi/treci argument, ako zelimo da setujemo neko specificno podesavanje
 	// a ovde setujemo za global sto znaci da ce biti setovano za svaki rikvest. A ono sto zelimo za svaki rikvest je da se pristupoa istoj url adresi
 
-axios.defaults.headers.common['Authorization'] = 'neko setovanje za authorzation' // takodje mozemo da konfigurisemo headers. Elem, axios ce uvek staviti bar neki difoltni header, ali ako mi zelimo neki drugi, mozemo ovde da setujemo. Potom u headers imamonekoliko razlicitih targets: mozemo staviti common da setujemo headers sto ce se odraziti na svaki rikvest, bez obzira kog je tipa, potom mozemo da stavim onas licni header daodavajuci property u ['nas-licni-header'], recimo Authorization header i onda da ga setujemo u nesto, ovo je dobar nacin da se recimo posalje neki genericki token na backend za svaki rikvest
+// axios.defaults.headers.common['Authorization'] = 'neko setovanje za authorzation' // takodje mozemo da konfigurisemo headers. Elem, axios ce uvek staviti bar neki difoltni header, ali ako mi zelimo neki drugi, mozemo ovde da setujemo. Potom u headers imamonekoliko razlicitih targets: mozemo staviti common da setujemo headers sto ce se odraziti na svaki rikvest, bez obzira kog je tipa, potom mozemo da stavim onas licni header daodavajuci property u ['nas-licni-header'], recimo Authorization header i onda da ga setujemo u nesto, ovo je dobar nacin da se recimo posalje neki genericki token na backend za svaki rikvest
 
 axios.defaults.headers.get['Accepts'] = 'application/json' // ako zelimo da setujem oehgader za specijalni rikvest to mozemo ovako 
 // i sada mozemo da vidimo ovo u Network delu u web developer toolsu
