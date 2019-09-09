@@ -2,8 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import axios from 'axios' // ovde smo importovali axios da bi mogli da setujemo kao neki global url, tj url nase baze koja se ne menja jelte, i na vise mesta u projektu se koristi, pa da se tamo ne ponavljamo, mozemo ovde da setujemo kao neki global, kao sto je recimo sa vue-resources islo sa http.options.root
 
+import Vuelidate from 'vuelidate'
+
 import router from './router'
 import store from './store'
+
+Vue.use(Vuelidate)
 
 axios.defaults.baseURL = 'https://max-axios-authorization.firebaseio.com' // base url, setovanje base url-a mozemo sa defaults objektom. Ovo je objekat sa kojim axios radi, i on nam omogucava da setujemo neka difoltna podesavanja i ta podesavanja koja setujemo ovde, mogu takodje biti setovana i tamo za recimo neki odredjen rikvest kao drugi/treci argument, ako zelimo da setujemo neko specificno podesavanje
 	// a ovde setujemo za global sto znaci da ce biti setovano za svaki rikvest. A ono sto zelimo za svaki rikvest je da se pristupoa istoj url adresi
